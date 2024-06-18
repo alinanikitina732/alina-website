@@ -60,3 +60,15 @@ img {
     max-height: 340px;
     height: auto;
 }
+
+@media only screen and (max-width: 800px) {
+    .photos {
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .photos > * {
+      flex: 1 0 40%;
+    }
+}
