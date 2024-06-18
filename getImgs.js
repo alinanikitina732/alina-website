@@ -5,7 +5,7 @@ const imageContainer = document.getElementById('image-container');
 
 for (let i = numberOfImages; i > 0; i--) {
     const img = document.createElement('img');
-    img.src = `../photolog/${year}/${i}.jpeg`;
+    img.src = `photolog/${year}/${i}.jpeg`;
     img.alt = `Image ${i}`;
     imageContainer.appendChild(img);
 }
