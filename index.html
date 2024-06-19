@@ -20,11 +20,11 @@
             <a href="https://www.goodreads.com/user/show/67059978-alina-nikitina">[ goodreads ]</a><br>
             <a href="https://boxd.it/5YV7T">[ letterboxd ]</a><br><br>
             <h2 id="links">years</h2>
-            <a href="photos.html?year=2024" onclick="loadPhotos(2024)">[ 2024 ]</a>
-            <a href="photos.html?year=2023" onclick="loadPhotos(2023)">[ 2023 ]</a>
-            <a href="photos.html?year=2022" onclick="loadPhotos(2022)">[ 2022 ]</a>
-            <a href="photos.html?year=2021" onclick="loadPhotos(2021)">[ 2021 ]</a>
-            <a href="photos.html?year=2020" onclick="loadPhotos(2020)">[ 2020 ]</a>
+            <a href="photosByYear.html?year=2024" onclick="loadPhotos(2024)">[ 2024 ]</a>
+            <a href="photosByYear.html?year=2023" onclick="loadPhotos(2023)">[ 2023 ]</a>
+            <a href="photosByYear.html?year=2022" onclick="loadPhotos(2022)">[ 2022 ]</a>
+            <a href="photosByYear.html?year=2021" onclick="loadPhotos(2021)">[ 2021 ]</a>
+            <a href="photosByYear.html?year=2020" onclick="loadPhotos(2020)">[ 2020 ]</a>
 
         </header>
 
@@ -37,7 +37,11 @@
         </div>
 
         <script>
+            const now = Date.now();
 
+            // Update the last load time
+            sessionStorage.setItem('lastLoadTime', now);
+    
             // Function to restore scroll position
             function restoreScrollPosition() {
                 const scrollpos = localStorage.getItem('scrollpos');
