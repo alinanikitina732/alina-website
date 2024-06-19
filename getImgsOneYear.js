@@ -17,6 +17,7 @@ function loadPhotos() {
         if (photoCount) {
             for (let i = photoCount; i > 0; i--) {
                 const img = document.createElement('img');
+                img.classList.add('gallery-image');
                 img.src = `photolog/${year}/${i}.jpeg`;
                 img.alt = `Image ${i}`;
                 imageContainer.appendChild(img);
