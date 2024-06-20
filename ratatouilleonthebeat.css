@@ -17,7 +17,6 @@
     flex-wrap: wrap;
     flex: 1 0 40%;
     gap: 48px;
-    margin: 2em 5em;
     justify-content: center;
     align-items: center;
     margin: 40px 60px 40px 60px;
@@ -51,7 +50,6 @@ hr {
 #image-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 60px;
 }
 
@@ -78,19 +76,16 @@ img {
         gap: 12px;
         margin: 0;
         padding: 0;
-        justify-content: center;
     }
 
     .photos > * {
         flex: 1 0 40%;
-        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .photos > * {
       flex: 1 0 100%; /* Full width on very small screens */
-      justify-content: center;
     }
 }
 
@@ -100,14 +95,12 @@ img {
         gap: 12px;
         margin: 0;
         padding: 0;
-        justify-content: center;
         max-width: 100%;
         height: auto;
     }
 
     #main-image > * {
         flex: 1 0 40%;
-        justify-content: center;
         max-width: 100%;
         height: auto;
     }
