@@ -118,6 +118,7 @@ img {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 48px;
+    margin: 2em 5em;
     justify-content: center;
     align-items: center;
     margin: 40px 20px 40px 20px;
@@ -130,6 +131,7 @@ header {
     line-height: 1.7;
     letter-spacing: 1.2px;
 }
+
 
 a:link {
     color: #E9D3CD;
@@ -185,28 +187,5 @@ img {
 
     .photos > * {
       flex: 1 0 40%;
-    }
-
-    #main-image {
-        width: 100%; /* Ensure the image takes up the full width of its container */
-    }
-
-    .container {
-        padding: 0 10px; /* Add some padding to avoid the image touching the edges */
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .photos > * {
-      flex: 1 0 40%; 
-      width: 100%; /* Full width on very small screens */
-    }
-
-    #main-image {
-        width: 100%; /* Ensure the image takes up the full width of its container */
-    }
-
-    .container {
-        padding: 0 10px; /* Add some padding to avoid the image touching the edges */
     }
 }
