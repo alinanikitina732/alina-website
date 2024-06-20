@@ -167,6 +167,16 @@ img {
     height: auto;
 }
 
+.gallery-image {
+    cursor: pointer;
+}
+
+#main-image {
+    max-width: 600px;
+    max-height: 540px;
+    object-fit: contain;
+}
+
 @media only screen and (max-width: 800px) {
     .photos {
       gap: 12px;
@@ -178,3 +188,10 @@ img {
       flex: 1 0 40%;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .photos > * {
+      flex: 1 0 100%; /* Full width on very small screens */
+    }
+}
+
