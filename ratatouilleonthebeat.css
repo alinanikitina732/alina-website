@@ -73,15 +73,16 @@ img {
 
 @media only screen and (max-width: 800px) {
     .photos {
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
+        flex: 1 0 40%;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
     }
 
     .photos > * {
-      flex: 1 0 40%;
-      justify-content: center;
+        flex: 1 0 40%;
+        justify-content: center;
     }
 }
 
