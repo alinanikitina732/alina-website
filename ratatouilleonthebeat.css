@@ -172,11 +172,11 @@ img {
     cursor: pointer;
 }
 
-#main-image {
+/* #main-image {
     max-width: 600px;
     max-height: 540px;
     object-fit: contain;
-}
+} */
 
 @media only screen and (max-width: 800px) {
     .photos {
