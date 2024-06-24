@@ -36,26 +36,6 @@
             <script src="openSelectedImg.js"></script>
         </div>
 
-        <script>
-            const now = Date.now();
-
-            // Update the last load time
-            sessionStorage.setItem('lastLoadTime', now);
-    
-            // Function to restore scroll position
-            function restoreScrollPosition() {
-                const scrollpos = localStorage.getItem('scrollpos');
-                if (scrollpos !== null) {
-                    window.scrollTo(0, parseInt(scrollpos));
-                    localStorage.removeItem('scrollpos'); // Clear the stored position after use
-                }
-            }
-
-            // Restore scroll position when the page loads
-            document.addEventListener('DOMContentLoaded', restoreScrollPosition);
-
-        </script>
-
     </div>
 </body>
 

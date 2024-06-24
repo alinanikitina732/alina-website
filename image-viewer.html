@@ -12,9 +12,16 @@
     <div class="container">
 
         <header>
-            <h1 id="top"><a href="/index.html" id="title">ratatouille.onthebeat</a></h1>
+            <h1 id="top"><a href="/" id="title">ratatouille.onthebeat</a></h1>
             <h3 id="introduction">hello, i'm alina</h3><br>
             <p><a href="/" id="go-back">[ back to gallery ]</a></p>
+
+            <script>
+                document.getElementById('go-back').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    window.history.back(); // Navigate to the previous page
+                });
+            </script>
     
         </header>
         
@@ -32,7 +39,6 @@
                     document.getElementById('main-image').src = imageUrl;
                 }
             });
-
         </script>
 
     </div>
