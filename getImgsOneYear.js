@@ -1,5 +1,5 @@
 const imageContainer = document.getElementById('image-container');
-const yearToPhotoCount = {2024: 134, 2023: 122, 2022: 128, 2021: 43, 2020: 43};
+const yearToPhotoCount = {2024: 138, 2023: 122, 2022: 128, 2021: 43, 2020: 43};
 
 function getQueryParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
