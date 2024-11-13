@@ -1,5 +1,5 @@
 const imageContainer = document.getElementById('image-container');
-const yearToPhotoCount = {2024: 138, 2023: 122, 2022: 128, 2021: 43, 2020: 43};
+const yearToPhotoCount = {2024: 247, 2023: 122, 2022: 128, 2021: 43, 2020: 43};
 
 Object.keys(yearToPhotoCount).map(Number).sort((a, b) => b - a).forEach(year => {
     for (let i = yearToPhotoCount[year]; i > 0; i--) {
