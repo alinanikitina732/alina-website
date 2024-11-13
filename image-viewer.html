@@ -15,30 +15,136 @@
             <h1 id="top"><a href="/" id="title">ratatouille.onthebeat</a></h1>
             <h3 id="introduction">hello, i'm alina</h3><br>
             <p><a href="/" id="go-back">[ back to gallery ]</a></p>
+            <br>
+            <p><a href="#" id="prev-photo">[ &lt;- ]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="next-photo">[ -&gt; ]</a></p>
 
             <script>
+                document.getElementById('top').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    localStorage.removeItem('scrollpos')
+                    window.open(`index.html`, '_self');
+                });
+                
                 document.getElementById('go-back').addEventListener('click', function(event) {
                     event.preventDefault(); // Prevent the default link behavior
-                    window.history.back(); // Navigate to the previous page
+                    window.open(`index.html`, '_self');
                 });
             </script>
     
         </header>
-        
+
         <div class="photos">
             <img id="main-image" src="" alt="selected Image">
         </div>
 
+        <script src="getImgs.js"></script>
+
         <script>
+            
+            let imageUrl;
+
             document.addEventListener('DOMContentLoaded', function() {
                 const params = new URLSearchParams(window.location.search);
-                const imageUrl = params.get('src');
+                imageUrl = params.get('src');
 
                 // set image source
                 if (imageUrl) {
                     document.getElementById('main-image').src = imageUrl;
                 }
             });
+
+        </script>
+
+        <script>
+
+            const params = new URLSearchParams(window.location.search);
+            imageUrl = params.get('src');
+            let currImageSrc = decodeURIComponent(imageUrl)
+
+            const regex = /photolog\/(\d+)\/(\d+)\.jpeg/;
+            const match = currImageSrc.match(regex)
+
+            var imageYear;
+            var imageIndex;
+
+            if (match) {
+                // match[1] contains the year
+                imageYear = match[1];
+                console.log(imageYear);
+
+                // match[2] contains the image index
+                imageIndex = match[2];
+                console.log(imageIndex);
+            } else {
+                console.log('No match found');
+            }
+
+            const imageFolder = `photolog/${imageYear}/`;
+            const imageCount = yearToPhotoCount[imageYear];  // number of images in folder
+
+            // Array of image filenames (adjust the pattern based on your files)
+            const imageFiles = Array.from({ length: imageCount }, (_, i) => `${imageFolder}${i + 1}.jpeg`);
+    
+            // Get the image element
+            const imageElement = document.getElementById('main-image');
+    
+            // Function to update the image
+            function updateImageNext() {
+                imageElement.src = encodeURIComponent(`photolog/${imageYear}/${parseInt(imageIndex)}.jpeg`);
+            }
+
+            // Function to update the image
+            function updateImagePrev() {
+                imageElement.src = encodeURIComponent(`photolog/${imageYear}/${parseInt(imageIndex)}.jpeg`);
+            }
+    
+            // Event listener for the button to change to the next photo
+            document.getElementById('next-photo').addEventListener('click', function() {
+                // Increment the index and wrap around if needed
+                
+                imageIndex = (parseInt(imageIndex) - 1);
+
+                // if got to first photo in year
+                if (parseInt(imageIndex) == 0) {
+                    // if can go down a year
+                    if (parseInt(imageYear) > 2020) {
+                        imageYear = parseInt(imageYear) - 1
+                    // otherwise wrap around to 'largest' year
+                    } else {
+                        // 'largest' year in map
+                        imageYear = Object.keys(yearToPhotoCount).map(Number).sort((a, b) => b - a)[0]
+                    }
+                    imageIndex = yearToPhotoCount[imageYear]
+                }
+
+                console.log(`decrementing... imageIndex now ${imageIndex}`)
+                updateImageNext();
+            });
+
+            document.getElementById('prev-photo').addEventListener('click', function() {
+                // Increment the index and wrap around if needed
+                imageIndex = parseInt(imageIndex) + 1;
+
+                // if got to last photo in year
+                if (parseInt(imageIndex) > yearToPhotoCount[imageYear]) {
+                    
+                    mostRecentYear = Object.keys(yearToPhotoCount).map(Number).sort((a, b) => b - a)[0]
+                    earliestYear = "2020"
+
+                    // if can go up a year
+                    if (parseInt(imageYear) < parseInt(mostRecentYear)) {
+                        imageYear = parseInt(imageYear) + 1
+                    } else {
+                        imageYear = earliestYear
+                    }
+
+                    imageIndex = "1"
+                }
+
+                console.log(`incrementing... imageIndex now ${imageIndex}`)
+                updateImagePrev();
+            });
+
         </script>
 
     </div>
