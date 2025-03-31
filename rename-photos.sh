@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Input and output folder paths
-input_folder="photolog/2025"
-output_folder="photolog/2025-new"
+output_folder="photolog/2025"
+input_folder="photolog/2025-temp"
+
+# Starting index for renaming photos
+starting_index="$1"
 
 # Create the new folder if it doesn't exist
 mkdir -p "$output_folder"
@@ -21,10 +24,9 @@ total_files=${#jpeg_files[@]}
 
 # Loop through the jpeg files in reverse order and rename them
 for ((i = 0; i < total_files; i++)); do
-    # Calculate the new filename (reverse order)
-    new_index=$((total_files - i))
 
     og_index=$((i + 1))
+    new_index=$((starting_index + i))
 
     # Get the original file and the new filename
     original_file="$input_folder/$og_index.jpeg"
@@ -34,4 +36,4 @@ for ((i = 0; i < total_files; i++)); do
     cp "$original_file" "$new_file"
 done
 
-echo "JPEG files have been renamed in reverse order and copied to '$output_folder'."
+echo "JPEG files have been renamed starting at index '$starting_index' and copied to '$output_folder'."
