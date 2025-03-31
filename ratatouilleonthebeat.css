@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'SF Pro Text',-apple-system,BlinkMacSystemFont;
-    background-color: #8A9A5B;
+    background-color: #384e1d;
 }
 
 /* everything on page */
@@ -25,30 +25,30 @@ body {
 header {
     flex: 1;
     text-align: center;
-    color: #674422;
+    color: #e5d3b3;
     line-height: 1.7;
     letter-spacing: 1.2px;
 }
 
 
 a:link {
-    color: #674422;
+    color: #e5d3b3;
 }
   
 a:visited {
-    color: #674422;
+    color: #e5d3b3;
 }
 
 a:hover {
-    color: #674422;
+    color: #e5d3b3;
 }
 
 a:active {
-    color: #674422;
+    color: #e5d3b3;
 }
 
 hr {
-    border-color: #674422;
+    border-color: #e5d3b3;
 }
 
 /* images themselves */
