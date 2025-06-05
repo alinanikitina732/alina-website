@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Input and output folder paths
-input_folder="photolog/2025"
-output_folder="photolog/2025-new"
+input_folder="photolog/2024"
+output_folder="photolog/2024-new"
 
 # Create the new folder if it doesn't exist
 mkdir -p "$output_folder"
