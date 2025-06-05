@@ -16,23 +16,14 @@ function loadPhotos() {
         const photoCount = yearToPhotoCount[year];
         if (photoCount) {
             
-            if (year == 2024) {
-                for (let i = 1; i <= photoCount; i++) {
-                    const img = document.createElement('img');
-                img.classList.add('gallery-image');
-                img.src = `photolog/${year}/${i}.jpeg`;
-                img.alt = `Image ${i}`;
-                imageContainer.appendChild(img);
-                }
-            } else {
-                for (let i = photoCount; i > 0; i--) {
+            for (let i = photoCount; i > 0; i--) {
                     const img = document.createElement('img');
                     img.classList.add('gallery-image');
                     img.src = `photolog/${year}/${i}.jpeg`;
                     img.alt = `Image ${i}`;
                     imageContainer.appendChild(img);
-                }
             }
+            
         } else {
             imageContainer.innerHTML = 'no photos available for this year :/';
         }
